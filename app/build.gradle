@@ -1,0 +1,22 @@
+plugins {
+    id 'maven-publish'
+}
+
+group = 'com.global66.dependency'
+version = '1.0.0'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.global66.dependency'
+            artifactId = 'tapandpay'
+            version = '1.0.0'
+            artifact(file('./libs/play-services-tapandpay-18.3.3.aar'))
+        }
+    }
+    repositories {
+        maven {
+            url = uri(layout.projectDirectory.dir('local-maven-repo'))
+        }
+    }
+}
